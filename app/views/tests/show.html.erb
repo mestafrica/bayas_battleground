@@ -1,0 +1,28 @@
+<h2>Details</h2>
+<h2><%= @test.title %></h2>
+<h4><%= @test.time %> </h4>
+<h4><%= @test.description%></h4>
+
+<% count = 0 %>
+<% @test.questions.each do |question| %>
+<p>
+	<%= count+=1 %>
+	<%= question.question_text  %>
+	<%= link_to "Options" ,test_question_path(@test,question) %>
+	<%= link_to "Delete" ,test_question_path(@test,question), method: :delete, data: {confirm: "Are you sure?"} %>	
+	</p>
+<% end %>
+
+<%= form_for([@test,@test.questions.build]) do |f| %>
+	<p>
+		Add New Question
+	</p>
+	<p>
+		<%= f.text_area :question_text %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+
+<% end %>
+<%= link_to "Back To Tests", tests_path %>

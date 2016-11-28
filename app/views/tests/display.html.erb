@@ -1,0 +1,10 @@
+<h1> Welcome to the battleground</h1>
+<h1>Choose your destiny!!!</h1>
+<% count = 0 %>
+<% @tests.each do |test| %>
+	<p>
+		<%= "#{count += 1}-" %>
+		<%= test.title %>
+		<%= link_to "Take Test", quiz_test_path(test) %>
+	</p>
+<% end %>

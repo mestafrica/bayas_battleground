@@ -1,0 +1,12 @@
+<h1>Test Categories</h1>
+<% @tests.each do |test| %>
+	<%= test.title %>
+	<%= link_to "More", test %>
+	<%= link_to "Edit", edit_test_path(test) %>	
+	<%= link_to "Delete", test, method: :delete, data: {confirm: "Are you sure?"} %>
+	<hr />
+
+
+<% end %>
+
+<%= link_to "Add New Test", new_test_path %>

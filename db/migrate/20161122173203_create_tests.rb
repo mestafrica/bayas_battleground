@@ -1,0 +1,11 @@
+class CreateTests < ActiveRecord::Migration
+  def change
+    create_table :tests do |t|
+    	t.string  :title
+    	t.integer :time
+    	t.text 	:description
+
+      t.timestamps null: false
+    end
+  end
+end

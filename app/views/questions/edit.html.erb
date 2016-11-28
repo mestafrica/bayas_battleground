@@ -1,0 +1,13 @@
+<h1> Edit Question</h1>
+<%= form_for([@test,@test.questions.build]) do |f| %>
+	<p>
+		Add New Question
+	</p>
+	<p>
+		<%= f.text_area :question_text %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+
+<% end %>

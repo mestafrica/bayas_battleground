@@ -1,0 +1,21 @@
+<h2> 1, 2, 3 FIGHT!!! </h2>
+<% count = 0 %>
+<%= form_tag({controller: "tests", action: "submission"}) do %>
+	<% @test.questions.each  do |q| %>
+		<p>
+		<% option_prefix = 65 %>
+		<%= count += 1 %>
+		<%= q.question_text %>
+		</p>
+		<p>
+		<% q.options.each do |option| %>
+			<%= option_prefix.chr %>
+			<%= radio_button_tag option.question_id ,option.id %>
+			<%= option.option_text %><br/>
+			<% option_prefix += 1 %>
+		<% end %>
+		</p>
+	<% end %>
+	<%= submit_tag 'submit' %>
+<% end %>
+
